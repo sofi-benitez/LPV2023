@@ -2,24 +2,22 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import axios from 'axios';
-import { MessageComponent } from '../message/message.component';
-import { MenuComponent } from '../menu/menu.component';
 
 import { DataService, Message } from '../services/data.service';
 import { CommonModule } from '@angular/common';
 import { IonicModule, Platform, ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-topic',
+  templateUrl: 'topic.page.html',
+  styleUrls: ['topic.page.scss'],
 })
 
-export class HomePage implements OnInit{
+export class TopicPage implements OnInit{
 
   private data = inject(DataService);
 
-  usuarios : any = [];
+  topicos : any = [];
 
   constructor(private toastController: ToastController,
     private router: Router) {}
@@ -43,14 +41,14 @@ export class HomePage implements OnInit{
       return;
     }
 
-    this.getUsers();
+    this.getTopic();
   }
 
   ngOnInit(): void {
     //this.getUsers();
   }
 
-  getUsers () {
+  getTopic () {
     let token = localStorage.getItem("token");
 
     let config = { 
@@ -58,10 +56,10 @@ export class HomePage implements OnInit{
           "Authorization" : token
         }
     };
-    axios.get("http://localhost:3000/users/list", config)
+    axios.get("http://localhost:3000/topics/list", config)
     .then( result => {
       if (result.data.success == true) {
-        this.usuarios = result.data.usuarios;
+        this.topicos = result.data.topicos;
       } else {
         console.log(result.data.error);
       }
@@ -71,7 +69,7 @@ export class HomePage implements OnInit{
     })
   }
 
-  deleteUser(id: number){
+  deleteTopic(id: number){
     let token = localStorage.getItem("token");
 
     let config = { 
@@ -79,12 +77,12 @@ export class HomePage implements OnInit{
           "Authorization" : token
         }
     };
-    axios.delete(`http://localhost:3000/users/delete/${id}`, config)
+    axios.delete(`http://localhost:3000/topics/delete/${id}`, config)
     .then(  async result => {
       if (result.data.success == true) {
-        console.log("Usuario Eliminado nro: ", id);
-        this.presentToats ("Usuario eliminado!!!");
-        this.getUsers();
+        console.log("Topico Eliminado nro: ", id);
+        this.presentToats ("Topico eliminado!!!");
+        this.getTopic();
       } else {
         this.presentToats (result.data.error );
         

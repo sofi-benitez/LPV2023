@@ -6,16 +6,16 @@ import axios from 'axios';
 import { DataService, Message } from '../services/data.service';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.page.html',
-  styleUrls: ['./edit-user.page.scss'],
+  selector: 'app-edit-topic',
+  templateUrl: './edit-topic.page.html',
+  styleUrls: ['./edit-topic.page.scss'],
 })
-export class EditUserPage implements OnInit {
+export class EditTopicPage implements OnInit {
   public message!: Message;
   private data = inject(DataService);
   private activatedRoute = inject(ActivatedRoute);
   private platform = inject(Platform);
-  usuario : any = {};
+  topico : any = {};
 
   constructor(private toastController: ToastController,
    private router: Router) {}
@@ -23,14 +23,14 @@ export class EditUserPage implements OnInit {
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
     //this.message = this.data.getMessageById(parseInt(id, 10));
-    axios.get("http://localhost:3000/user/" + id)
+    axios.get("http://localhost:3000/topic/" + id)
     .then( result => {
       if (result.data.success == true) {
 
-        if( result.data.usuario != null){
-          this.usuario = result.data.usuario;
+        if( result.data.topico != null){
+          this.topico = result.data.topico;
         }else{
-          this.usuario = {};
+          this.topico = {};
         }
        
       } else {
@@ -50,7 +50,7 @@ export class EditUserPage implements OnInit {
     
   }
 
-  saveUser(){
+  saveTopic(){
     let token = localStorage.getItem("token");
 
     let config = { 
@@ -59,20 +59,21 @@ export class EditUserPage implements OnInit {
         }
     };
 
-    console.log("usuario", this.usuario);
+    console.log("topico", this.topico);
     var data = {
-      id : this.usuario.id,
-      name: this.usuario.name,
-      last_name: this.usuario.last_name,
-      email: this.usuario.email,
-      password: this.usuario.password
+      id : this.topico.id,
+      name: this.topico.name,
+      create_date: this.topico.create_date,
+      order: this.topico.order,
+      priority: this.topico.priority,
+      color: this.topico.color
 
     }
 
-    axios.post("http://localhost:3000/users/update", data, config)
+    axios.post("http://localhost:3000/topics/update", data, config)
     .then(  async result => {
       if (result.data.success == true) {
-        this.presentToats ("Usuario Guardado!!!");
+        this.presentToats ("Topico Guardado!!!");
           this.router.navigate(["/home"]);
       } else {
         this.presentToats (result.data.error );

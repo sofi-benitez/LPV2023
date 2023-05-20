@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="usuario">
+<ion-content [fullscreen]="true" *ngIf="topico">
 
   <ion-item>
     <ion-icon aria-hidden="true" name="person-circle" color="primary"></ion-icon>
@@ -15,19 +15,23 @@
         <ion-list>
 
           <ion-item>
-            <ion-input label="Nombre" placeholder="Nombre" [(ngModel)] = "usuario.name"></ion-input>
+            <ion-input label="Nombre" placeholder="Nombre" [(ngModel)] = "topico.name"></ion-input>
           </ion-item>
            
           <ion-item>
-            <ion-input label="Apellido" placeholder="Apellido" [(ngModel)] = "usuario.last_name"></ion-input>
+            <ion-input label="Creaacion" placeholder="Creacion" [(ngModel)] = "topico.create_date"></ion-input>
           </ion-item>
           
           <ion-item> 
-            <ion-input label="Email" placeholder="Email"[(ngModel)]= "usuario.email"></ion-input>
+            <ion-input label="Orden" placeholder="Orden"[(ngModel)]= "topico.order"></ion-input>
           </ion-item>
 
           <ion-item> 
-            <ion-input label="Password" placeholder="Constraseña"[(ngModel)]= "usuario.password"></ion-input>
+            <ion-input label="Prioridad" placeholder="Prioridad"[(ngModel)]= "topico.priority"></ion-input>
+          </ion-item>
+
+          <ion-item> 
+            <ion-input label="Color" placeholder="Color"[(ngModel)]= "topico.color"></ion-input>
           </ion-item>
 
         </ion-list>
@@ -38,7 +42,7 @@
 
   <ion-fab  slot="fixed" vertical="bottom" horizontal="end">
 
-    <ion-fab-button (click) ="saveUser()">
+    <ion-fab-button (click) ="saveTopic()">
       <ion-icon   name="bookmark-outline"></ion-icon>
     </ion-fab-button>
     

@@ -11,7 +11,7 @@
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title color ="primary" class="" >
-        Home Sofia Benitez
+        Topics Sofia Benitez
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -20,16 +20,16 @@
       <!--
         <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
       --> 
-      <ion-item *ngFor="let usuario of usuarios" >
+      <ion-item *ngFor="let topico of topicos" >
         
-        <ion-label [routerLink]="'/view-message/' + usuario.id" >{{usuario.id}} - {{usuario.name}} - {{usuario.last_name}} </ion-label>
-        <ion-icon   color="success" slot="end" name="pencil-outline" [routerLink]= "'/edit-user/' + usuario.id" ></ion-icon>
-        <ion-icon  color="primary" slot="end" name="trash-outline"  (click) ="deleteUser(usuario.id)"></ion-icon>
+        <ion-label [routerLink]="'/view-topic/' + topico.id" >{{topico.id}} - {{topico.name}} </ion-label>
+        <ion-icon   color="success" slot="end" name="pencil-outline" [routerLink]= "'/edit-topic/' + topico.id" ></ion-icon>
+        <ion-icon  color="primary" slot="end" name="trash-outline"  (click) ="deleteTopic(topico.id)"></ion-icon>
 
       </ion-item>
     </ion-list>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button routerLink= "/edit-user/0">
+      <ion-fab-button routerLink= "/edit-topic/0">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
       

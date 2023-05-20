@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
-import { HomePage } from './home.page';
-import { HomePageRoutingModule } from './home-routing.module';
+import { TopicPage } from './topic.page';
+import { TopicPageRoutingModule } from './topic-routing.module';
 import { MessageComponentModule } from '../message/message.module';
 import { MenuComponentModule } from '../menu/menu.module';
 
@@ -14,9 +14,9 @@ import { MenuComponentModule } from '../menu/menu.module';
     FormsModule,
     IonicModule,
     MessageComponentModule,
-    HomePageRoutingModule,
+    TopicPageRoutingModule,
     MenuComponentModule
   ],
-  declarations: [HomePage]
+  declarations: [TopicPage]
 })
-export class HomePageModule {}
+export class TopicPageModule {}

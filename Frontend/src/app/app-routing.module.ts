@@ -11,8 +11,24 @@ const routes: Routes = [
     loadChildren: () => import('./view-message/view-message.module').then( m => m.ViewMessagePageModule)
   },
   {
+    path: 'view-topic/:id',
+    loadChildren: () => import('./view-topic/view-topic.module').then( m => m.ViewTopicPageModule)
+  },
+  {
     path: 'edit-user/:id',
     loadChildren: () => import('./edit-user/edit-user.module').then( m => m.EditUserPageModule)
+  },
+  {
+    path: 'edit-topic/:id',
+    loadChildren: () => import('./edit-topic/edit-topic.module').then( m => m.EditTopicPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'topic',
+    loadChildren: () => import('./topic/topic.module').then( m => m.TopicPageModule)
   },
   {
     path: '',

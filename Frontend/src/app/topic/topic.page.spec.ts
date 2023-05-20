@@ -5,19 +5,19 @@ import { IonicModule } from '@ionic/angular';
 import { MessageComponentModule } from '../message/message.module';
 import { MenuComponent } from '../menu/menu.component';
 
-import { HomePage } from './home.page';
+import { TopicPage } from './topic.page';
 
-describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+describe('TopicPage', () => {
+  let component: TopicPage;
+  let fixture: ComponentFixture<TopicPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomePage],
+      declarations: [TopicPage],
       imports: [IonicModule.forRoot(), MessageComponentModule, RouterModule.forRoot([])]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HomePage);
+    fixture = TestBed.createComponent(TopicPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
