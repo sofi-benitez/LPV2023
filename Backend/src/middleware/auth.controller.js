@@ -1,15 +1,16 @@
 const {sequelize} = require ("../connection");
 const jwt = require ('jsonwebtoken');
 
-const auth = async function (req, res, next){
- if(!req.headers.authorization){
+const auth = async function (req, res, next) {
+ if (!req.headers.authorization){
     res.json({
         success: false,
         error: "No autorizado el header"
     });
+    /* console.log("Token de usuario", req); */
  }else{
     let token = req.headers.authorization;
-    const usersDB = await sequelize.query("SELECT * FROM users WHERE toke = '" + token +"'");
+    const usersDB = await sequelize.query("SELECT * FROM users WHERE token = '" + token +"'");
     let user = null;
 
     if (usersDB.length > 0 && usersDB[0].length > 0){
@@ -26,4 +27,7 @@ const auth = async function (req, res, next){
         });
     }
  }
+}
+module.exports = {
+    auth
 };

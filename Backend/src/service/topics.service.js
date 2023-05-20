@@ -1,10 +1,9 @@
 const { sequelize } = require("../connection");
 const { TopicsModel } = require("../model/topics.model");
 
-///cuando se trata de listar es mejor usar SQL puro por cuestion de tiempo
 const listar = async function (textoBuscar) {
 
-    console.log("listar topicos");
+    console.log("listar topicos service");
 
     try {
         const topics = await sequelize.query(`SELECT * 

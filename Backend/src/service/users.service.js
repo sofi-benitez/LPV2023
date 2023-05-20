@@ -52,12 +52,10 @@ const consultarPorCodigo = async function(req, res) {
 
 const actualizar = async function(id, name, last_name, avatar, email, password, deleted) {
     console.log("actualizar usuarios");
-    //res.send("actualizar de usuarios");
-    //Variables
-    let usuarioRetorno = null;    //Guardara el usuario que se va incluir o editar.
-    //const data = req.body;  //Se obtiene los datos del cuerpo de la peticion
+    
+    let usuarioRetorno = null;    
     const data = {id, name, last_name, avatar, email, password, deleted};
-    //const id = req.body.id;
+    
     try {
         let usrExiste = null;
         if (id) {

@@ -4,7 +4,7 @@ const UserService = require('../../service/users.service');
 const jwt = require ('jsonwebtoken');
 
 const listarController = async function(req, res) {
-    console.log("listar usuarios controller");
+    console.log("listar usuarios controllers");
     try {
         const users = await UserService.listarService(req.query.filtro || '');
         
