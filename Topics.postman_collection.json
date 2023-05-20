@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "89802869-acb4-4db5-a3bd-1fe7b3d9921a",
+		"name": "Topics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21733616"
+	},
+	"item": [
+		{
+			"name": "Listar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU29maWEgbW9kIiwiYXZhdGFyIjoiYXByIiwiZW1haWwiOiJzYmVuaXRlejk5QGdtYWlsLmNvbSIsImlhdCI6MTY4NDUzNjM1OX0.jI6VW-iCUC4l95l5GPE43mkqa2f5CNGppmWSVz7o6Jc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/topics/list/?filtro=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"topics",
+						"list",
+						""
+					],
+					"query": [
+						{
+							"key": "filtro",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU29maWEgbW9kIiwiYXZhdGFyIjoiYXByIiwiZW1haWwiOiJzYmVuaXRlejk5QGdtYWlsLmNvbSIsImlhdCI6MTY4NDUzNjM1OX0.jI6VW-iCUC4l95l5GPE43mkqa2f5CNGppmWSVz7o6Jc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/topic/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"topic",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insertar/Actualizar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU29maWEgbW9kIiwiYXZhdGFyIjoiYXByIiwiZW1haWwiOiJzYmVuaXRlejk5QGdtYWlsLmNvbSIsImlhdCI6MTY4NDUzNjM1OX0.jI6VW-iCUC4l95l5GPE43mkqa2f5CNGppmWSVz7o6Jc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"create_date\": \"2023-03-29T03:00:00.000Z\",\r\n    \"name\": \"Prueba Modificado\",\r\n    \"topic_id\": 1,\r\n    \"order\": 2,\r\n    \"priority\": 1,\r\n    \"color\": \"amarillo\",\r\n    \"owner_user_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/topics/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"topics",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU29maWEgbW9kIiwiYXZhdGFyIjoiYXByIiwiZW1haWwiOiJzYmVuaXRlejk5QGdtYWlsLmNvbSIsImlhdCI6MTY4NDUzNjM1OX0.jI6VW-iCUC4l95l5GPE43mkqa2f5CNGppmWSVz7o6Jc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/topics/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"topics",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
